@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sucesso Empresarial - Consultoria, Treinamentos e Automação de Processos">
+    <title>Sucesso Empresarial Ltda</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #1a3a5c;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1a3a5c 0%, #2c5282 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            font-weight: 400;
+        }
+
+        .cnpj {
+            font-size: 0.9rem;
+            margin-top: 10px;
+            opacity: 0.85;
+        }
+
+        main {
+            padding: 60px 20px;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            color: #1a3a5c;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #4a5568;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid #2ecc71;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .service-card h3 {
+            color: #1a3a5c;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .service-card .icon {
+            width: 40px;
+            height: 40px;
+            background: #2ecc71;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .service-card p {
+            color: #4a5568;
+            line-height: 1.8;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 16px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #2ecc71;
+            padding: 15px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        footer {
+            background: #1a3a5c;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: #2ecc71;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+            transition: opacity 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            opacity: 0.8;
+        }
+
+        .footer-info {
+            font-size: 0.9rem;
+            opacity: 0.85;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .logo {
+                font-size: 2rem;
+            }
+
+            .services {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">Sucesso Empresarial</div>
+            <div class="tagline">Consultoria, Treinamentos e Automação</div>
+            <div class="cnpj">CNPJ: 01.655.728/0001-14</div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h1>Transforme seu negócio com soluções inteligentes</h1>
+            <p>Oferecemos consultoria especializada, treinamentos sob medida e automação de processos para impulsionar os resultados da sua empresa.</p>
+        </section>
+
+        <section class="services">
+            <div class="service-card">
+                <h3>
+                    <span class="icon">📊</span>
+                    Consultoria Empresarial
+                </h3>
+                <p>Análise estratégica e soluções personalizadas para otimizar processos, aumentar produtividade e alcançar metas de crescimento sustentável.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>
+                    <span class="icon">🎓</span>
+                    Treinamentos
+                </h3>
+                <p>Capacitação de equipes com metodologias modernas em liderança, gestão, vendas e desenvolvimento humano para potencializar resultados.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>
+                    <span class="icon">⚙️</span>
+                    Automação de Processos
+                </h3>
+                <p>Integração inteligente de sistemas e automação de tarefas para reduzir custos operacionais e aumentar a eficiência do seu negócio.</p>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h2>Pronto para dar o próximo passo?</h2>
+            <p>Entre em contato e descubra como podemos ajudar sua empresa a alcançar novos patamares de sucesso.</p>
+            <a href="mailto:mauricio@sucesso.com.br" class="cta-button">Fale Conosco</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="privacidade.html">Política de Privacidade</a>
+                <a href="termos.html">Termos de Uso</a>
+            </div>
+            <div class="footer-info">
+                <p><strong>Sucesso Empresarial Ltda</strong></p>
+                <p>CNPJ: 01.655.728/0001-14</p>
+                <p>Contato: <a href="mailto:mauricio@sucesso.com.br" style="color: #2ecc71;">mauricio@sucesso.com.br</a></p>
+                <p style="margin-top: 20px; font-size: 0.85rem;">© 2026 Sucesso Empresarial. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

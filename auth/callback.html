@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autorização OAuth - Sucesso Empresarial</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #1a3a5c 0%, #2c5282 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 600px;
+            width: 100%;
+            padding: 50px 40px;
+            text-align: center;
+        }
+
+        .icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 30px;
+            background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            animation: scaleIn 0.5s ease;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        h1 {
+            color: #1a3a5c;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .status {
+            color: #2ecc71;
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .message {
+            color: #4a5568;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .code-box {
+            background: #f7fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 30px 0;
+            word-break: break-all;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: #2d3748;
+            display: none;
+        }
+
+        .code-box.show {
+            display: block;
+        }
+
+        .instructions {
+            background: #ebf8ff;
+            border-left: 4px solid #4299e1;
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            text-align: left;
+            margin: 30px 0;
+        }
+
+        .instructions h3 {
+            color: #2c5282;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .instructions ol {
+            margin-left: 20px;
+            color: #4a5568;
+            line-height: 1.8;
+        }
+
+        .instructions li {
+            margin-bottom: 10px;
+        }
+
+        .button {
+            display: inline-block;
+            background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(46, 204, 113, 0.4);
+        }
+
+        .copy-button {
+            background: #4299e1;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 10px;
+            transition: background 0.2s ease;
+        }
+
+        .copy-button:hover {
+            background: #3182ce;
+        }
+
+        .copy-button:active {
+            background: #2c5282;
+        }
+
+        .footer {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #e2e8f0;
+            color: #718096;
+            font-size: 0.9rem;
+        }
+
+        .footer a {
+            color: #2ecc71;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 40px 25px;
+            }
+
+            h1 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon">✓</div>
+        <h1>Autorização Concluída</h1>
+        <div class="status" id="status">Processando...</div>
+        <p class="message" id="message">Estamos processando sua autorização...</p>
+
+        <div class="code-box" id="codeBox">
+            <strong>Código de Autorização:</strong><br>
+            <span id="authCode"></span>
+        </div>
+
+        <div class="instructions" id="instructions" style="display: none;">
+            <h3>📋 Próximos Passos:</h3>
+            <ol>
+                <li>O código de autorização foi capturado com sucesso</li>
+                <li>Você pode fechar esta janela</li>
+                <li>Retorne à aplicação que solicitou a autorização</li>
+                <li>A integração será concluída automaticamente</li>
+            </ol>
+        </div>
+
+        <div class="footer">
+            <p>
+                <a href="../index.html">← Voltar para página inicial</a><br>
+                <small style="display: block; margin-top: 15px;">Sucesso Empresarial Ltda | CNPJ: 01.655.728/0001-14</small>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Captura parâmetros da URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const code = urlParams.get('code');
+        const error = urlParams.get('error');
+        const errorDescription = urlParams.get('error_description');
+
+        const statusEl = document.getElementById('status');
+        const messageEl = document.getElementById('message');
+        const codeBoxEl = document.getElementById('codeBox');
+        const authCodeEl = document.getElementById('authCode');
+        const instructionsEl = document.getElementById('instructions');
+
+        // Processa resultado
+        if (error) {
+            // Erro na autorização
+            statusEl.textContent = 'Erro na Autorização';
+            statusEl.style.color = '#e53e3e';
+            messageEl.innerHTML = `
+                <strong>Não foi possível concluir a autorização.</strong><br>
+                Erro: ${error}<br>
+                ${errorDescription ? `Descrição: ${errorDescription}` : ''}
+                <br><br>
+                Por favor, tente novamente ou entre em contato com o suporte.
+            `;
+        } else if (code) {
+            // Sucesso
+            statusEl.textContent = '✓ Autorização Concluída com Sucesso!';
+            statusEl.style.color = '#2ecc71';
+            messageEl.innerHTML = `
+                Sua autorização foi processada com sucesso!<br>
+                O código de autorização foi gerado e você pode prosseguir.
+            `;
+            
+            // Exibe código (opcional - depende da implementação)
+            authCodeEl.textContent = code;
+            codeBoxEl.classList.add('show');
+            instructionsEl.style.display = 'block';
+
+            // Opcional: enviar código para backend
+            // sendCodeToBackend(code);
+
+            // Auto-fechar após 5 segundos (opcional)
+            // setTimeout(() => window.close(), 5000);
+        } else {
+            // Sem parâmetros
+            statusEl.textContent = 'Aguardando Autorização';
+            statusEl.style.color = '#ed8936';
+            messageEl.innerHTML = `
+                Nenhum código de autorização foi recebido.<br>
+                Esta página deve ser acessada através do fluxo OAuth do Google.
+            `;
+        }
+
+        // Função para copiar código (opcional)
+        function copyCode() {
+            const code = document.getElementById('authCode').textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                alert('Código copiado para área de transferência!');
+            });
+        }
+
+        // Função para enviar código ao backend (implementar conforme necessário)
+        function sendCodeToBackend(code) {
+            // Exemplo:
+            // fetch('/api/oauth/callback', {
+            //     method: 'POST',
+            //     headers: { 'Content-Type': 'application/json' },
+            //     body: JSON.stringify({ code })
+            // }).then(response => response.json())
+            //   .then(data => console.log('Success:', data));
+        }
+    </script>
+</body>
+</html>
