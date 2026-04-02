@@ -1,0 +1,77 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const posts = [
+  {
+    slug: 'ia-para-pequenas-empresas',
+    title: 'IA para Pequenas Empresas: O Guia Pratico',
+    description: 'Descubra como pequenas empresas ja estao usando inteligencia artificial para cortar custos, automatizar tarefas e competir de igual para igual com grandes corporacoes.',
+    date: '1 de abril de 2026',
+    tags: ['IA', 'Pequenas Empresas', 'Automacao'],
+    image: 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&h=400&fit=crop'
+  },
+  {
+    slug: 'automacao-sem-gastar-nada',
+    title: 'Automacao de Processos: Comece Sem Gastar Nada',
+    description: 'Ferramentas gratuitas para automatizar tarefas repetitivas na sua pequena empresa. Como comecar hoje sem investir um centavo.',
+    date: '1 de abril de 2026',
+    tags: ['Automacao', 'Ferramentas Gratuitas', 'Produtividade'],
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=400&fit=crop'
+  },
+  {
+    slug: 'whatsapp-business-com-ia',
+    title: 'WhatsApp Business com IA: O Futuro do Atendimento',
+    description: 'Como integrar inteligencia artificial ao WhatsApp Business para atender clientes 24 horas, reduzir custos e aumentar vendas sem contratar mais gente.',
+    date: '1 de abril de 2026',
+    tags: ['WhatsApp', 'IA', 'Atendimento'],
+    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=400&fit=crop'
+  },
+  {
+    slug: 'gestao-financeira-automatizada',
+    title: 'Gestao Financeira Automatizada: Pare de Fazer Planilha',
+    description: 'Como usar Asaas, Cora e outras ferramentas para automatizar a gestao financeira da sua pequena empresa. Menos planilha, mais resultado.',
+    date: '1 de abril de 2026',
+    tags: ['Financeiro', 'Automacao', 'Asaas'],
+    image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=400&fit=crop'
+  },
+  {
+    slug: 'porque-sua-empresa-precisa-de-um-agente-de-ia',
+    title: 'Por Que Sua Empresa Precisa de um Agente de IA',
+    description: 'O que sao agentes de inteligencia artificial, porque eles estao revolucionando os negocios e como sua pequena empresa pode se beneficiar.',
+    date: '1 de abril de 2026',
+    tags: ['IA', 'Agentes', 'Automacao'],
+    image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=400&fit=crop'
+  }
+];
+---
+
+<Layout title="Blog" description="Artigos sobre gestao, tecnologia, IA e automacao para pequenas empresas. Insights praticos para transformar seu negocio.">
+  <section style="text-align: center; margin-bottom: 60px;">
+    <h1 style="font-size: 2.5rem; color: #1a3a5c; margin-bottom: 15px;">Blog</h1>
+    <p style="font-size: 1.2rem; color: #4a5568; max-width: 600px; margin: 0 auto;">
+      Insights sobre gestao, tecnologia e automacao para pequenas empresas que querem crescer de verdade.
+    </p>
+  </section>
+
+  <section style="display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 30px;">
+    {posts.map((post) => (
+      <article style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+        <div style="width: 100%; height: 200px; overflow: hidden;">
+          <img src={post.image} alt={post.title} style="width: 100%; height: 100%; object-fit: cover;" />
+        </div>
+        <div style="padding: 25px;">
+          <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px;">
+            {post.tags.map(tag => (
+              <span style="background: #e8f5e9; color: #2ecc71; padding: 4px 10px; border-radius: 20px; font-size: 0.8rem; font-weight: 500;">{tag}</span>
+            ))}
+          </div>
+          <h2 style="font-size: 1.3rem; color: #1a3a5c; margin-bottom: 10px; line-height: 1.3;">
+            <a href={`/blog/${post.slug}/`} style="color: inherit; text-decoration: none;">{post.title}</a>
+          </h2>
+          <p style="color: #4a5568; font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">{post.description}</p>
+          <div style="color: #718096; font-size: 0.85rem;">{post.date}</div>
+        </div>
+      </article>
+    ))}
+  </section>
+</Layout>

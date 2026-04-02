@@ -1,0 +1,71 @@
+---
+import Layout from './Layout.astro';
+
+export interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  author?: string;
+  image?: string;
+  tags?: string[];
+}
+
+const { title, description, pubDate, author = 'Sucesso Empresarial', image, tags = [] } = Astro.props;
+
+const formattedDate = pubDate.toLocaleDateString('pt-BR', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+});
+---
+
+<Layout title={title} description={description} article={true} pubDate={pubDate} author={author} image={image}>
+  <article style="max-width: 800px; margin: 0 auto;">
+    <header style="margin-bottom: 40px; text-align: center;">
+      <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;">
+        {tags.map(tag => (
+          <span style="background: #e8f5e9; color: #2ecc71; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 500;">{tag}</span>
+        ))}
+      </div>
+      <h1 style="font-size: 2.5rem; color: #1a3a5c; margin-bottom: 20px; line-height: 1.2;">{title}</h1>
+      <div style="color: #718096; font-size: 0.95rem;">
+        <time datetime={pubDate.toISOString()}>{formattedDate}</time>
+        <span style="margin: 0 10px;">|</span>
+        <span>{author}</span>
+      </div>
+    </header>
+
+    {image && (
+      <img src={image} alt={title} style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 12px; margin-bottom: 40px;" />
+    )}
+
+    <div style="font-size: 1.1rem; line-height: 1.9; color: #2d3748;" class="prose">
+      <slot />
+    </div>
+
+    <footer style="margin-top: 60px; padding-top: 40px; border-top: 1px solid #e2e8f0;">
+      <div style="background: #f8f9fa; padding: 30px; border-radius: 12px; text-align: center;">
+        <p style="font-size: 1.1rem; color: #1a3a5c; margin-bottom: 20px;">
+          Quer saber como aplicar isso no seu negocio?
+        </p>
+        <a href="mailto:mauricio@sucesso.com.br" style="display: inline-block; background: #2ecc71; color: white; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: 600;">
+          Fale com a gente
+        </a>
+      </div>
+    </footer>
+  </article>
+
+  <style>
+    .prose h2 { font-size: 1.8rem; color: #1a3a5c; margin-top: 2.5rem; margin-bottom: 1rem; line-height: 1.3; }
+    .prose h3 { font-size: 1.4rem; color: #1a3a5c; margin-top: 2rem; margin-bottom: 0.75rem; }
+    .prose p { margin-bottom: 1.5rem; }
+    .prose ul, .prose ol { margin-bottom: 1.5rem; padding-left: 1.5rem; }
+    .prose li { margin-bottom: 0.5rem; }
+    .prose strong { color: #1a3a5c; }
+    .prose a { color: #2ecc71; text-decoration: underline; }
+    .prose blockquote { border-left: 4px solid #2ecc71; padding-left: 1.5rem; margin: 2rem 0; font-style: italic; color: #4a5568; }
+    .prose table { width: 100%; border-collapse: collapse; margin: 2rem 0; }
+    .prose th, .prose td { border: 1px solid #e2e8f0; padding: 12px; text-align: left; }
+    .prose th { background: #f8f9fa; font-weight: 600; }
+  </style>
+</Layout>

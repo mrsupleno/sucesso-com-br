@@ -1,0 +1,147 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Sucesso Empresarial Ltda - Consultoria e Treinamentos">
+  <style>
+    .hero {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      color: var(--color-primary);
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--color-text-muted);
+      max-width: 700px;
+      margin: 0 auto 30px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: var(--color-accent);
+      color: white;
+      padding: 15px 40px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(46, 204, 113, 0.3);
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 60px;
+    }
+
+    .service-card {
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 15px rgba(0,0,0,0.12);
+    }
+
+    .service-card h3 {
+      color: var(--color-primary);
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+
+    .service-card p {
+      color: var(--color-text-muted);
+      line-height: 1.7;
+    }
+
+    .blog-preview {
+      margin-top: 80px;
+      padding: 60px 0;
+      background: white;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .blog-preview h2 {
+      color: var(--color-primary);
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .blog-preview p {
+      color: var(--color-text-muted);
+      margin-bottom: 30px;
+    }
+
+    .blog-link {
+      color: var(--color-accent);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    .blog-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+
+  <section class="hero">
+    <h1>Transforme sua empresa com Consultoria, Treinamentos e Automação</h1>
+    <p>
+      Ajudamos pequenas e médias empresas a crescerem de forma sustentável através de 
+      processos eficientes, equipes capacitadas e tecnologia aplicada de forma inteligente.
+    </p>
+    <a href="mailto:mauricio@sucesso.com.br" class="cta-button">Fale Conosco</a>
+  </section>
+
+  <section class="services">
+    <div class="service-card">
+      <h3>🎯 Consultoria Empresarial</h3>
+      <p>
+        Diagnóstico, reestruturação e implementação de processos que realmente funcionam. 
+        Foco em resultado financeiro, não em relatórios bonitos.
+      </p>
+    </div>
+
+    <div class="service-card">
+      <h3>📚 Treinamentos</h3>
+      <p>
+        Desenvolvimento de líderes e equipes com base em PNL, Coaching Sistêmico e 
+        metodologias comprovadas. Sem papo corporativo — só o que funciona na prática.
+      </p>
+    </div>
+
+    <div class="service-card">
+      <h3>🤖 Automação Inteligente</h3>
+      <p>
+        Implantação de sistemas e automações que economizam tempo e reduzem erros. 
+        Tecnologia como alavanca de crescimento, não como custo.
+      </p>
+    </div>
+  </section>
+
+  <section class="blog-preview">
+    <h2>Últimos Insights</h2>
+    <p>
+      Acompanhe artigos práticos sobre gestão moderna, automação e tecnologia aplicada 
+      a pequenas empresas.
+    </p>
+    <a href="/blog" class="blog-link">Ver todos os artigos →</a>
+  </section>
+</BaseLayout>
